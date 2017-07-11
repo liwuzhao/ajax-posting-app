@@ -1,6 +1,6 @@
 <div id="post-<%= post.id %>" class="panel panel-default">
   <div class="panel-heading"><%= post.user.display_name %></div>
-  
+
   <div class="panel-body">
     <span id="post-thumbsup-<%= post.id %>" class="label label-success"><%= post.likes.count %> 👍</span>
 
@@ -10,6 +10,10 @@
 
     <span id="post-like-<%= post.id %>">
       <%= render :partial => "like", :locals => { :post => post} %>
+    </span>
+
+    <span id="post-favor-<%= post.id %>">
+      <%= render :partial => "favor", :locals => { :post => post} %>
     </span>
 
     <% if current_user && post.user == current_user %>

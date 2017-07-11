@@ -44,6 +44,22 @@ class PostsController < ApplicationController
     render "like"
   end
 
+  def favor
+    @post = Post.find(params[:id])
+    unless @post.find_favor(current_user)
+      Favor.create( :user => current_user, :post => @post)
+    end
+
+  end
+
+  def unfavor
+    @post = Post.find(params[:id])
+    favor = @post.find_favor(current_user)
+    favor.destroy
+
+    render "favor"
+  end
+
   def toggle_flag
     @post = Post.find(params[:id])
 

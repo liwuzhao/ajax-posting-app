@@ -15,6 +15,9 @@ class User < ApplicationRecord
   has_many :likes, :dependent => :destroy
   has_many :liked_posts, :through => :likes, :source => :post
 
+  has_many :favors, :dependent => :destroy
+  has_many :favor_posts, :through => :likes, :source => :post
+
   def is_admin?
     role == "admin"
   end
