@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         post "favor" => "posts#favor"
         post "unfavor" => "posts#unfavor"
         post "toggle_flag" => "posts#toggle_flag"
+        post "rate" => "posts#rate"
       end
   end
 
