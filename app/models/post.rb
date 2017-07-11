@@ -16,4 +16,6 @@ class Post < ApplicationRecord
     self.favors.where( :user_id => user.id).first
   end
 
+  belongs_to :category, :optional => true
+
 end
